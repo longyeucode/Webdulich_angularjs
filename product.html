@@ -1,0 +1,73 @@
+
+
+<div class="container ">
+  <div class="row mt-5 ">
+    <div class="col-2 d-none d-lg-block">
+      <form class="d-flex  mt-3  mt-lg-0" role="search">
+        <input class="form-control rounded-pill me-2" type="search" placeholder="Search" aria-label="Search" ng-model="search">
+      </form>
+      <ul class="list-group list-group-flush sticky-top">
+        <li class="list-group-item list-group-item-action">
+          <div class="btn-group" role="group">
+              <button class="btn btn-warning" ng-click="tang()">Tăng dần</button>
+              <button class="btn btn-warning" ng-click="giam()">Giảm dần</button>
+          </div>
+      </li>
+        <h4>Điểm đến</h4>
+        <li class="list-group-item list-group-item-action"><a href="" class="font-weight-light text-dark text-decoration-none" ng-click="setCategory()"> <= Trở lại </a></li>
+        <li class="list-group-item list-group-item-action"><a  href="" class="font-weight-light text-dark text-decoration-none" ng-click="setCategory('Việt Nam')">Việt Nam</a></li>
+        <li class="list-group-item list-group-item-action"><a href="" class="font-weight-light text-dark text-decoration-none"ng-click="setCategory('Philippines')">Philippines</a></li>
+        <li class="list-group-item list-group-item-action"><a  href=""class="font-weight-light text-dark text-decoration-none"ng-click="setCategory('Campuchia')">Campuchia</a></li>
+        <li class="list-group-item list-group-item-action"><a   href=""class="font-weight-light text-dark text-decoration-none"ng-click="setCategory('Thái Lan')">Thái Lan</a></li>
+        <li class="list-group-item list-group-item-action"><a  href="" class="font-weight-light text-dark text-decoration-none"ng-click="setCategory('Lào')">Lào</a></li>
+        <li class="list-group-item list-group-item-action"><a   href=""class="font-weight-light text-dark text-decoration-none"ng-click="setCategory('Indonesia')">Indonesia</a></li>
+        <li class="list-group-item list-group-item-action"><a  href="" class="font-weight-light text-dark text-decoration-none"ng-click="setCategory('Malaysia')">Malaysia</a></li>
+        
+       
+        
+      </ul>
+      
+    </div>
+    
+  <div class="col-lg-10 col-sm-12 col-md-12">
+    <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-5" ng-repeat="p in products.slice(startIndex(), endIndex() + 1) | filter : {diadiem: Category} | filter : {name:search} | orderBy : sort">
+      <div class="card" >
+        <img src="../img/{{p.photo}}" class="card-img-top" alt="...">
+        <div class="card-body py-0">
+        <p class=" m-0">{{p.name}}</p>
+          <span class="fw-light"><i class='bx bxs-star text-warning'>5.0</i>(50.213k)</span>
+          <span class="fw-light">{{p.thongke}}+ đã được đặt</span>
+          <br>
+          <div class="mb-2 ">
+          <span class="bg-secondary bg-opacity-25 text-secondary text-opacity-50 ">bán chạy</span> <span class="bg-secondary bg-opacity-25 text-opacity-50 text-secondary ">Hoàn tiền miễn phí</span>
+        </div>
+        <span class="me-2">Giá:</span><span class="text-decoration-line-through me-1">5000$</span><span class="text-warning" style="font-size:20px">  {{p.gia| number:2}}$</span>  
+      <div class="text-center">
+        <button class="btn btn-warning p-2 m-2" ng-click="themgiohang(p)">Thêm vào giỏ hàng </button> 
+      </div>
+      </div>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+  
+  
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="text-center" ng-repeat="page in getPages()">
+        <button class="btn p-2 bg-warning m-2 nav-link" ng-click="setPage(page)">{{page}}</button>
+    </div>
+</div>
+
+  </div>
+
+   
+    
+
+
+
+
+
+ 

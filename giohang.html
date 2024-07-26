@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8">
+    <table class="table">
+   <thead>
+   <tr>
+     <th style="width: 100px;">ảnh</th>
+     <th>Sản phẩm</th>
+     <th>Giá bán</th>
+     <th>Số lượng</th>
+   <th>Thành tiền</th>
+     <th>Hành động</th>
+   </tr>
+   </thead>
+   <tbody  >
+    
+    <tbody ng-repeat="sp in cart">
+   <td><img src="../img/{{sp.photo}}" alt="" class="w-100"></td>
+   <td>{{sp.name}}</td>
+   <td>{{sp.gia | number}}</td>
+   <td><input type="number" class="form-control" style="width: 80px;" ng-model="sp.soluong" ng-change="savecart()" min="1"></td>
+   <th>{{sp.soluong*sp.gia |number}}</th>
+   <td><button class="bg-warning rounded-pill" ng-click="remove(index)">xóa</button></td>
+   
+  </tbody>
+   </tbody>
+   
+   
+   </table>
+   </div>
+   <div class="col-md-4">
+   
+   <div class="card ">
+   <div class="card-header">
+   <strong>Hóa đơn</strong>
+   </div>
+   <div class="card-body">
+   <div class="row mb-2">
+   <div class="col-6" > 
+    <strong>Khách hàng : </strong>
+   </div>
+   <div class="col-6" ng-show="loggedInUser">{{loggedInUser.taikhoan}}
+    
+   </div>
+   <div class="col-6">
+   <strong>Địa chỉ:</strong>
+  </div>
+   <div class="col-6 text- end" ng-show="loggedInUser">
+    <div>Đia chỉ : 278/Lê văn Khương Phường Thới An - Quận 12 - TPHCM</div>
+   </div>
+   
+   </div>
+   <div class="row mb-2">
+    <div class="col-6">
+      <strong>Tổng số lượng</strong></div>
+    <div class="col-6 text- end">
+    {{tongsoluong()}}
+    </div>
+    </div>
+   <div class="row mb-2">
+   <div class="col-6">
+     <strong>Tổng tiền</strong></div>
+   <div class="col-6 text- end">
+     {{tongtien() | number}}$
+   </div>
+   </div>
+   </div>
+   
+   </div>
+   <div ng-show="loggedInUser">
+   <button type="button" ng-click="checkout()" class="btn btn-warning"  style="margin-top: 20px;">
+   Thanh toán sản phẩm
+   <div id="history">
+   
+   
+  </div>
+   </button>
+  </div>
+   </div>
+    </div>
+    </div>
+   
+    

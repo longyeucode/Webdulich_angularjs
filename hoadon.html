@@ -1,0 +1,11 @@
+<div id="history">
+    <h1>Lịch sử mua hàng</h1>
+    <ul>
+      <li ng-repeat="purchase in purchaseHistory">
+        <strong>Mặt hàng:</strong> {{ purchase.product }}<br>
+        <strong>Giá:</strong> {{ purchase.gia }}<br>
+        <strong>Số lượng:</strong> {{ purchase.soluong }}<br>
+        <strong>Ngày mua:</strong> {{ purchase.date | date: 'dd/MM/yyyy' }}
+      </li>
+    </ul>
+  </div>
